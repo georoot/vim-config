@@ -1,0 +1,78 @@
+snippet log
+	console.log(${1});
+snippet mod
+	module.exports = ${0};
+snippet fun
+	function(${1}){
+		${0}
+	}
+snippet req
+	const ${1:} = require('$1');
+snippet pro
+	return new Promise((fullfill,reject)=>{
+		${0:/* Code */}
+	});
+snippet route
+	const express = require('express');
+
+	var route = express.Router();
+	${0}
+	module.exports = route;
+snippet exput
+	route.put("${1:/}",(req,res)=>{
+		${0}
+	});
+snippet exdel
+	route.delete("${1:/:id}",(req,res)=>{
+		${0}
+	});
+snippet exget
+	route.get("${1:/}",(req,res)=>{
+		${0}
+	});
+snippet expost
+	route.post("${1:/}",(req,res)=>{
+		${0}
+	});
+snippet m:model
+	const mongoose = require('mongoose');
+	var Schema = mongoose.Schema;
+
+	var ${1:}Schema = new Schema({
+		${0}
+	});
+
+	module.exports = mongoose.model('$1',$1Schema);
+snippet m:connect
+	mongoose.connect('mongodb://${1:'+process.env.DbHost+'/'+process.env.DbName});
+	mongoose.Promise = global.Promise;
+	var db = mongoose.connection;
+	db.on('error',console.error.bind(console,'Database err:'));
+snippet if
+	if(${1:Condition}){
+		${0}
+	}
+snippet ife
+	if(${1:Condition}){
+		${2}
+	}else{
+		${3}
+	}
+snippet for
+	for(let i=0;i< ${1:Object}.length;i++){
+		${0}
+	}
+snippet forin
+	for(${1:Prop} in ${2:obj}){
+		if($2.hasOwnProperty($1)){
+			${0}
+		}
+	}
+snippet foreach
+	${1:Array}.forEach((${2:Element})=>{
+		${0}
+	});
+snippet map
+	${1:Array}.map((atom)=>{
+		${0}
+	});
